@@ -23,8 +23,8 @@ This module creates multiple S3 buckets and DynamoDB tables, configured for use 
 ## Example Usage
 
 ```hcl
-module "state_storage" {
-  source = "./terraform-s3-dynamodb"
+module "test_project1_state" {
+  source = "github.com/marco-nastasi/terraform-aws-s3-dynamodb-state?ref=v0.0.1"
 
   project_name = "aws-test-project1"
   common_tags = {
