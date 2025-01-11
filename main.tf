@@ -8,7 +8,7 @@ resource "aws_s3_bucket" "s3_bucket" {
 }
 
 resource "aws_s3_bucket_versioning" "s3_bucket_versioning" {
-  bucket = aws_s3_bucket.state_bucket.id
+  bucket = aws_s3_bucket.s3_bucket.id
 
   versioning_configuration {
     status = var.s3_versioning_configuration
@@ -16,7 +16,7 @@ resource "aws_s3_bucket_versioning" "s3_bucket_versioning" {
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "s3_bucket_sse" {
-  bucket = aws_s3_bucket.state_bucket.id
+  bucket = aws_s3_bucket.s3_bucket.id
 
   rule {
     apply_server_side_encryption_by_default {
@@ -37,7 +37,9 @@ resource "aws_dynamodb_table" "state_lock_tables" {
   hash_key = "LockID"
 
   tags = merge(
-    {Name = "${var.project_name}-table"},
+    {
+      Name = "${var.project_name}-table"
+    },
     var.common_tags
   )
 }
