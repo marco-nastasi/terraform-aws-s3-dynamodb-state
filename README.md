@@ -24,7 +24,7 @@ This module creates multiple S3 buckets and DynamoDB tables, configured for use 
 
 ```hcl
 module "test_project1_state" {
-  source = "github.com/marco-nastasi/terraform-aws-s3-dynamodb-state?ref=v0.0.1"
+  source = "github.com/marco-nastasi/terraform-aws-s3-dynamodb-state"
 
   project_name = "aws-test-project1"
   common_tags = {

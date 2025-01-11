@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "state_bucket" {
+resource "aws_s3_bucket" "s3_bucket" {
   bucket_prefix = lower(var.project_name)
 
   tags = merge(
@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "state_bucket" {
   )
 }
 
-resource "aws_s3_bucket_versioning" "this" {
+resource "aws_s3_bucket_versioning" "s3_bucket_versioning" {
   bucket = aws_s3_bucket.state_bucket.id
 
   versioning_configuration {
@@ -15,7 +15,7 @@ resource "aws_s3_bucket_versioning" "this" {
   }
 }
 
-resource "aws_s3_bucket_server_side_encryption_configuration" "name" {
+resource "aws_s3_bucket_server_side_encryption_configuration" "s3_bucket_sse" {
   bucket = aws_s3_bucket.state_bucket.id
 
   rule {
