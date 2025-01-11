@@ -1,6 +1,6 @@
 output "s3_bucket_id" {
   description = "The ID of the created S3 bucket"
-  value       = aws_s3_bucket.state_bucket.id
+  value       = aws_s3_bucket.s3_bucket.id
 }
 
 output "dynamodb_table_name" {
